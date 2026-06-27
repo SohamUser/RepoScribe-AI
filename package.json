@@ -1,0 +1,16 @@
+{
+  "name": "doc-generator-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace @doc-generator/web",
+    "build:web": "npm run build --workspace @doc-generator/web",
+    "lint:web": "npm run lint --workspace @doc-generator/web",
+    "start:queue-api": "npm run start:api --workspace @doc-generator/queue",
+    "start:queue-worker": "npm run start:worker --workspace @doc-generator/queue"
+  }
+}

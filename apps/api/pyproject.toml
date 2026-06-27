@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "doc-generator-api"
+version = "0.1.0"
+description = "FastAPI backend for AI-powered repository documentation generation."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.14.0",
+  "celery[redis]>=5.4.0",
+  "fastapi>=0.115.0",
+  "gitpython>=3.1.43",
+  "greenlet>=3.1.1",
+  "httpx>=0.28.0",
+  "pydantic-settings>=2.6.0",
+  "psycopg[binary]>=3.2.0",
+  "python-json-logger>=2.0.7",
+  "python-multipart>=0.0.12",
+  "redis>=5.2.0",
+  "sqlalchemy[asyncio]>=2.0.36",
+  "structlog>=24.4.0",
+  "tenacity>=9.0.0",
+  "tree-sitter>=0.23.2",
+  "tree-sitter-go>=0.23.4",
+  "tree-sitter-java>=0.23.5",
+  "tree-sitter-javascript>=0.23.1",
+  "tree-sitter-python>=0.23.6",
+  "tree-sitter-typescript>=0.23.2",
+  "uvicorn[standard]>=0.32.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.13.0",
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.24.0",
+  "ruff>=0.7.0"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
