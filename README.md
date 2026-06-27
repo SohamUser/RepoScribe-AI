@@ -130,7 +130,3 @@ Container runtime notes:
 - An internal `queue-api` service is also included because the current BullMQ orchestration layer uses it to enqueue and track repository processing jobs.
 - All long-running services include restart policies and health checks.
 
-## Notes
-
-- The previous `frontend/` starter app has been reorganized into `apps/web`.
-- A hidden leftover nested Git folder may still exist in `frontend/` from the original setup; it was intentionally left untouched to avoid destructive cleanup without your approval.
